@@ -32,14 +32,15 @@ export default function Home() {
       />
 
       <h1 className="z-10 text-5xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-7xl md:text-8xl whitespace-nowrap bg-clip-text">
-        JERT
+        FEMILIENZ
       </h1>
 
       <div className="hidden w-screen h-px md:block animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
       <div className="mt-10 text-center animate-fade-in px-4 max-w-xl">
       <h2 className="text-sm text-zinc-400 leading-relaxed">
-      <span className="font-semibold">J</span>ust <span className="font-semibold">E</span>xperience <span className="font-semibold">R</span>adical <span className="font-semibold">T</span>ransformation. A poetic system for mental clarity.
+      <span className="font-semibold">F</span>eminine <span className="font-semibold">E</span>nergy, <span className="font-semibold">M</span>ental clarity, <span className="font-semibold">I</span>nner wisdom.  
+This is Femilienz.
       </h2>
 </div>
     </div>
