@@ -6,20 +6,20 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "JERT System",
-    template: "%s | JERT",
+    default: "FEMILIENZ",
+    template: "%s | FEMILIENZ",
   },
   description:
     "A poetic system for reflection, resonance, and real transformation – built around Radical Sensitive Leadership and Ikigai.",
   openGraph: {
-    title: "JERT System",
+    title: "FEMILIENZ",
     description:
       "A poetic system for reflection, resonance, and real transformation – built around Radical Sensitive Leadership and Ikigai.",
-    url: "https://jert.us",
-    siteName: "JERT System",
+    url: "https://femilienz.de",
+    siteName: "FEMILIENZ",
     images: [
       {
-        url: "https://jert.us/og.png", // → ggf. noch generieren
+        url: "https://femilienz.de/og.png", // → ggf. noch generieren
         width: 1920,
         height: 1080,
       },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "JERT",
+    title: "FEMILIENZ",
     card: "summary_large_image",
   },
   icons: {
