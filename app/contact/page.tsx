@@ -1,16 +1,10 @@
 "use client";
-import { Mail, Youtube, Linkedin, Instagram, Twitter, Video } from "lucide-react";
+import { Youtube, Linkedin, Twitter} from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
 const socials = [
-  {
-    icon: <Mail size={20} />,
-    href: "mailto:hello@jert.us",
-    label: "E-Mail",
-    handle: "hello@jert.us",
-  },
   {
     icon: <Youtube size={20} />,
     href: "https://www.youtube.com/@DrMiriamvonFelbert",
@@ -24,22 +18,10 @@ const socials = [
     handle: "Miriam von Felbert",
   },
   {
-    icon: <Instagram size={20} />,
-    href: "https://www.instagram.com/drmiriamvonfelbert",
-    label: "Instagram",
-    handle: "@drmiriamvonfelbert",
-  },
-  {
     icon: <Twitter size={20} />,
     href: "https://x.com/DrMvonFelbert",
     label: "X (Twitter)",
     handle: "@DrMvonFelbert",
-  },
-  {
-    icon: <Video size={20} />,
-    href: "https://www.tiktok.com/@jert_ikigai",
-    label: "TikTok",
-    handle: "@jert_ikigai",
   },
 ];
 
