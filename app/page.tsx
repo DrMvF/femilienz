@@ -39,8 +39,7 @@ export default function Home() {
 
       <div className="mt-10 text-center animate-fade-in px-4 max-w-xl">
       <h2 className="text-sm text-zinc-400 leading-relaxed">
-      <span className="font-semibold">F</span>eminine <span className="font-semibold">E</span>nergy, <span className="font-semibold">M</span>ental clarity, <span className="font-semibold">I</span>nner wisdom.  
-This is Femilienz.
+      Feminine energy. Mental clarity. Inner wisdom. A rhythm of resilience.
       </h2>
 </div>
     </div>
