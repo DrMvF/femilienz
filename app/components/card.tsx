@@ -3,11 +3,10 @@
 import {
   motion,
   useMotionTemplate,
-  useMotionValue,
   useSpring,
 } from "framer-motion";
 
-import { MouseEventHandler, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 
 export const Card: React.FC<PropsWithChildren> = ({ children }) => {
   const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
@@ -26,7 +25,7 @@ export const Card: React.FC<PropsWithChildren> = ({ children }) => {
     <div
       onMouseMove={onMouseMove}
       className="relative overflow-hidden rounded-xl border duration-700 
-                 group font-serif 
+                 group 
                  border-zinc-300 dark:border-zinc-600 
                  hover:border-zinc-500/50 dark:hover:border-zinc-400/50 
                  hover:bg-zinc-100/10 dark:hover:bg-zinc-800/10"
@@ -49,7 +48,7 @@ export const Card: React.FC<PropsWithChildren> = ({ children }) => {
         />
       </div>
 
-      <div className="relative z-20 p-6 text-zinc-800 dark:text-zinc-100">
+      <div className="relative z-20 p-6 font-serif prose prose-zinc dark:prose-invert">
         {children}
       </div>
     </div>
