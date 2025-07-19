@@ -2,9 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  .text-edge-outline {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-  }
-} 
+/* -------- Computer Modern Font -------- */
+@font-face {
+  font-family: 'Computer Modern';
+  src: url('/fonts/cmunrm.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: 'Computer Modern';
+  src: url('/fonts/cmunbx.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Computer Modern';
+  src: url('/fonts/cmunti.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* -------- CSS Variables for Light/Dark Mode -------- */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* -------- Base Typography & Layout -------- */
+@layer base {
+  html {
+    font-family: 'Computer Modern', serif;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid var(--foreground);
+    opacity: 0.8;
+  }
+
+  /* Optional: outline text */
+  .text-edge-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  }
+}
