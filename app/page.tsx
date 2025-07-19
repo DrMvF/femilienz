@@ -32,7 +32,7 @@ export default function Home() {
       />
 
       <h1 className="z-10 text-5xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-serif sm:text-7xl md:text-8xl whitespace-nowrap bg-clip-text">
-        FEMILIENZ
+        Femilienz
       </h1>
 
       <div className="hidden w-screen h-px md:block animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
