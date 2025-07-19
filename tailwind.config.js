@@ -31,6 +31,7 @@ module.exports = {
 			fontFamily: {
 				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
 				display: ["var(--font-calsans)"],
+				serif: ["Computer Modern", "serif"], // ← hinzugefügt für LaTeX-Stil
 			},
 			backgroundImage: {
 				"gradient-radial":
@@ -59,7 +60,6 @@ module.exports = {
 						transform: "translateX(100%)",
 						opacity: "0%",
 					},
-
 					"30%": {
 						transform: "translateX(0%)",
 						opacity: "100%",
@@ -73,7 +73,6 @@ module.exports = {
 						transform: "translateX(-100%)",
 						opacity: "0%",
 					},
-
 					"30%": {
 						transform: "translateX(0%)",
 						opacity: "100%",
@@ -95,7 +94,6 @@ module.exports = {
 					"80%": {
 						opacity: "100%",
 					},
-
 					"100%": {
 						"line-height": "100%",
 						opacity: "100%",
@@ -104,6 +102,7 @@ module.exports = {
 			},
 		},
 	},
+
 	plugins: [
 		require("@tailwindcss/typography"),
 		require("tailwindcss-debug-screens"),
