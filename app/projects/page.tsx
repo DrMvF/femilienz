@@ -10,31 +10,37 @@ import { Eye } from "lucide-react";
 const redis = Redis.fromEnv();
 
 export const revalidate = 60;
+
 export default async function ProjectsPage() {
   const views = (
     await redis.mget<number[]>(
-      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
+      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":"))
     )
   ).reduce((acc, v, i) => {
     acc[allProjects[i].slug] = v ?? 0;
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "ikigaistrategist")!;
-  const top2 = allProjects.find((project) => project.slug === "radicalsensitiveleadership")!;
+  const featured = allProjects.find(
+    (project) => project.slug === "ikigaistrategist"
+  )!;
+  const top2 = allProjects.find(
+    (project) => project.slug === "radicalsensitiveleadership"
+  )!;
   const top3 = allProjects.find((project) => project.slug === "ikigami")!;
+
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
       (project) =>
         project.slug !== featured.slug &&
         project.slug !== top2.slug &&
-        project.slug !== top3.slug,
+        project.slug !== top3.slug
     )
     .sort(
       (a, b) =>
         new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
+        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
     );
 
   return (
@@ -49,11 +55,12 @@ export default async function ProjectsPage() {
             Built in different contexts. United by a deeper intention.
           </p>
         </div>
+
         <div className="w-full h-px bg-zinc-800" />
 
-        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
-          <Card>
-            <Link href={`/projects/${featured.slug}`}>
+        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
+          <Link href={`/projects/${featured.slug}`} className="group">
+            <Card>
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
@@ -68,10 +75,10 @@ export default async function ProjectsPage() {
                     )}
                   </div>
                   <span className="flex items-center gap-1 text-xs text-zinc-500">
-                    <Eye className="w-4 h-4" />{" "}
-                    {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                      views[featured.slug] ?? 0,
-                    )}
+                    <Eye className="w-4 h-4" />
+                    {Intl.NumberFormat("en-US", {
+                      notation: "compact",
+                    }).format(views[featured.slug] ?? 0)}
                   </span>
                 </div>
 
@@ -90,10 +97,10 @@ export default async function ProjectsPage() {
                   </p>
                 </div>
               </article>
-            </Link>
-          </Card>
+            </Card>
+          </Link>
 
-          <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
+          <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0">
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} views={views[project.slug] ?? 0} />
@@ -101,6 +108,7 @@ export default async function ProjectsPage() {
             ))}
           </div>
         </div>
+
         <div className="hidden w-full h-px md:block bg-zinc-800" />
 
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
