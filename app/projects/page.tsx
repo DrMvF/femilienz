@@ -42,10 +42,10 @@ export default async function ProjectsPage() {
       <Navigation />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl tracking-tight text-zinc-100 sm:text-4xl font-serif">
             Projects
           </h2>
-          <p className="mt-4 text-zinc-300">
+          <p className="mt-4 text-zinc-400 font-serif">
             Built in different contexts. United by a deeper intention.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default async function ProjectsPage() {
 
                 <h2
                   id="featured-post"
-                  className="mt-4 text-3xl text-white group-hover:text-white sm:text-4xl font-normal"
+                  className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl"
                 >
                   {featured.title}
                 </h2>
@@ -96,7 +96,9 @@ export default async function ProjectsPage() {
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
-                <Article project={project} views={views[project.slug] ?? 0} />
+                <Link href={`/projects/${project.slug}`} className="no-underline">
+                  <Article project={project} views={views[project.slug] ?? 0} />
+                </Link>
               </Card>
             ))}
           </div>
@@ -109,7 +111,9 @@ export default async function ProjectsPage() {
               .filter((_, i) => i % 3 === 0)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Link href={`/projects/${project.slug}`} className="no-underline">
+                    <Article project={project} views={views[project.slug] ?? 0} />
+                  </Link>
                 </Card>
               ))}
           </div>
@@ -118,7 +122,9 @@ export default async function ProjectsPage() {
               .filter((_, i) => i % 3 === 1)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Link href={`/projects/${project.slug}`} className="no-underline">
+                    <Article project={project} views={views[project.slug] ?? 0} />
+                  </Link>
                 </Card>
               ))}
           </div>
@@ -127,7 +133,9 @@ export default async function ProjectsPage() {
               .filter((_, i) => i % 3 === 2)
               .map((project) => (
                 <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+                  <Link href={`/projects/${project.slug}`} className="no-underline">
+                    <Article project={project} views={views[project.slug] ?? 0} />
+                  </Link>
                 </Card>
               ))}
           </div>
