@@ -45,7 +45,7 @@ export default function Home() {
       {/* Untertitel */}
       <div className="my-16 text-center animate-fade-in">
         <h2 className="text-base text-white leading-relaxed font-serif">
-          Feminine energy. Mental clarity. Inner wisdom. A rhythm of resilience.
+          Feminine energy. Mental clarity. Inner wisdom. <br /> A rhythm of resilience.
         </h2>
       </div>
     </div>
