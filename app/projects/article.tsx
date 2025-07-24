@@ -9,7 +9,10 @@ type Props = {
 
 export const Article: React.FC<Props> = ({ project, views }) => {
   return (
-    <Link href={`/projects/${project.slug}`}>
+    <Link
+      href={`/projects/${project.slug}`}
+      className="no-underline hover:no-underline"
+    >
       <article className="p-4 md:p-8 font-serif">
         <div className="flex justify-between gap-2 items-center">
           <span className="text-xs text-zinc-200">
@@ -28,10 +31,10 @@ export const Article: React.FC<Props> = ({ project, views }) => {
             {Intl.NumberFormat("en-US", { notation: "compact" }).format(views)}
           </span>
         </div>
-        <h2 className="mt-2 text-xl lg:text-3xl text-zinc-100 group-hover:text-white">
+        <h2 className="mt-2 text-xl lg:text-3xl text-zinc-100">
           {project.title}
         </h2>
-        <p className="mt-4 text-sm text-zinc-400 group-hover:text-zinc-200">
+        <p className="mt-4 text-sm text-zinc-400">
           {project.description}
         </p>
       </article>
