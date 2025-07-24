@@ -10,13 +10,14 @@ const navigation = [
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-700/20 to-black">
-      <nav className="my-12 animate-fade-in">
-        <ul className="flex items-center justify-center gap-6">
+      {/* Navigation */}
+      <nav className="my-16 animate-fade-in">
+        <ul className="flex items-center justify-center gap-4">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm duration-500 text-zinc-400 hover:text-zinc-100"
+              className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
             >
               {item.name}
             </Link>
@@ -24,21 +25,26 @@ export default function Home() {
         </ul>
       </nav>
 
-      <div className="hidden w-screen h-px md:block animate-glow animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+      {/* Oberer Glow Divider */}
+      <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
+      {/* Particles Background */}
       <Particles
         className="absolute inset-0 -z-10 animate-fade-in"
-        quantity={66}
+        quantity={100}
       />
 
-      <h1 className="z-10 text-5xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-serif sm:text-7xl md:text-8xl whitespace-nowrap bg-clip-text">
+      {/* Titel: Femilienz */}
+      <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-serif sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text">
         Femilienz
       </h1>
 
-      <div className="hidden w-screen h-px md:block animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+      {/* Unterer Glow Divider */}
+      <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
-      <div className="mt-10 text-center animate-fade-in px-4 max-w-xl">
-        <h2 className="text-sm text-zinc-400 leading-relaxed font-serif">
+      {/* Untertitel */}
+      <div className="my-16 text-center animate-fade-in">
+        <h2 className="text-sm text-zinc-500 font-serif">
           Feminine energy. Mental clarity. Inner wisdom. A rhythm of resilience.
         </h2>
       </div>
