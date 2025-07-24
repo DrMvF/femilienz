@@ -1,5 +1,6 @@
 "use client";
-import { Youtube, Linkedin, Twitter} from "lucide-react";
+
+import { Youtube, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
@@ -29,24 +30,29 @@ export default function ContactPage() {
   return (
     <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 min-h-screen">
       <Navigation />
-      <div className="mx-auto max-w-6xl px-4 py-24">
-        <h1 className="mb-12 text-3xl font-bold text-center text-zinc-100 font-display">
-          Get in Touch
-        </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
+        <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
           {socials.map((s) => (
             <Card key={s.href}>
               <Link
                 href={s.href}
                 target="_blank"
-                className="flex items-center gap-4 p-6 group hover:bg-zinc-800 transition rounded-xl"
+                className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24 lg:pb-48 md:p-16"
               >
-                <span className="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-500 bg-zinc-900 text-zinc-200 group-hover:text-white">
+                <span
+                  className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
+                  aria-hidden="true"
+                />
+                <span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200">
                   {s.icon}
                 </span>
-                <div>
-                  <p className="font-medium text-zinc-200 group-hover:text-white">{s.label}</p>
-                  <p className="text-sm text-zinc-400">{s.handle}</p>
+                <div className="z-10 flex flex-col items-center">
+                  <span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-serif">
+                    {s.handle}
+                  </span>
+                  <span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200 font-serif">
+                    {s.label}
+                  </span>
                 </div>
               </Link>
             </Card>
