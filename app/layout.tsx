@@ -1,25 +1,23 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "FEMILIENZ",
-    template: "%s | FEMILIENZ",
+    default: "Femilienz",
+    template: "%s | Femilienz",
   },
   description:
     "A poetic system for reflection, resonance, and real transformation – built around Radical Sensitive Leadership and Ikigai.",
   openGraph: {
-    title: "FEMILIENZ",
+    title: "Femilienz",
     description:
       "A poetic system for reflection, resonance, and real transformation – built around Radical Sensitive Leadership and Ikigai.",
     url: "https://femilienz.de",
-    siteName: "FEMILIENZ",
+    siteName: "Femilienz",
     images: [
       {
-        url: "https://femilienz.de/og.png", // → ggf. noch generieren
+        url: "https://femilienz.de/og.png",
         width: 1920,
         height: 1080,
       },
@@ -43,19 +41,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   icons: {
-    shortcut: "/favicon.ico", // → sollte als PNG oder ICO unter /public liegen
+    shortcut: "/favicon.ico",
   },
 };
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const calSans = LocalFont({
-  src: "../public/fonts/CalSans-SemiBold.ttf",
-  variable: "--font-calsans",
-});
 
 export default function RootLayout({
   children,
@@ -63,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+    <html lang="en">
       <head>
         <Analytics />
       </head>
