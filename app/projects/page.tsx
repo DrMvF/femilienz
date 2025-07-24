@@ -38,14 +38,14 @@ export default async function ProjectsPage() {
     );
 
   return (
-    <div className="relative pb-16">
+    <div className="relative pb-16 font-serif">
       <Navigation />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Projects
           </h2>
-          <p className="mt-4 text-zinc-400">
+          <p className="mt-4 text-zinc-300">
             Built in different contexts. United by a deeper intention.
           </p>
         </div>
@@ -53,7 +53,7 @@ export default async function ProjectsPage() {
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
-            <Link href={`/projects/${featured.slug}`}>
+            <Link href={`/projects/${featured.slug}`} className="no-underline">
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
@@ -77,7 +77,7 @@ export default async function ProjectsPage() {
 
                 <h2
                   id="featured-post"
-                  className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+                  className="mt-4 text-3xl text-white group-hover:text-white sm:text-4xl font-normal"
                 >
                   {featured.title}
                 </h2>
