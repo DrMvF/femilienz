@@ -65,15 +65,6 @@ export const Header: React.FC<Props> = ({ project, views }) => {
               <Eye className="w-5 h-5" />
               {Intl.NumberFormat("en-US", { notation: "compact" }).format(views)}
             </span>
-            <Link target="_blank" href="https://twitter.com/DrMvonFelbert">
-              <Twitter
-                className={`w-6 h-6 duration-200 hover:font-medium ${
-                  isIntersecting
-                    ? "text-zinc-400 hover:text-zinc-100"
-                    : "text-zinc-600 hover:text-zinc-900"
-                }`}
-              />
-            </Link>
             <Link
               target="_blank"
               href="https://www.linkedin.com/in/miriamvonfelbert/"
