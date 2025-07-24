@@ -10,8 +10,8 @@ const navigation = [
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-700/20 to-black">
-      {/* Navigation oben */}
-      <nav className="absolute top-6 w-full animate-fade-in z-20">
+      {/* Navigation – exakt wie bei JERT */}
+      <nav className="my-16 animate-fade-in">
         <ul className="flex items-center justify-center gap-6">
           {navigation.map((item) => (
             <Link
@@ -32,7 +32,7 @@ export default function Home() {
       <Particles className="absolute inset-0 -z-10 animate-fade-in" quantity={100} />
 
       {/* Haupttitel */}
-      <h1 className="z-10 mt-12 text-4xl text-white duration-1000 cursor-default animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap">
+      <h1 className="py-3.5 px-0.5 z-10 text-5xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-serif sm:text-7xl md:text-8xl whitespace-nowrap bg-clip-text">
         Femilienz
       </h1>
 
@@ -40,7 +40,7 @@ export default function Home() {
       <div className="hidden w-screen h-px md:block animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
       {/* Untertitel */}
-      <div className="mt-10 text-center animate-fade-in px-4 max-w-xl">
+      <div className="my-16 text-center animate-fade-in px-4 max-w-xl">
         <h2 className="text-base text-white leading-relaxed font-serif">
           Feminine energy. Mental clarity. Inner wisdom.
           <br />
