@@ -9,10 +9,21 @@ const redis = Redis.fromEnv();
 
 export const revalidate = 60;
 
+function calculateAge(dateString: string) {
+  const birthDate = new Date("1981-04-29");
+  const createdDate = new Date(dateString);
+  let age = createdDate.getFullYear() - birthDate.getFullYear();
+  const m = createdDate.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && createdDate.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+
 export default async function ProjectsPage() {
   const views = (
     await redis.mget<number[]>(
-      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
+      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":"))
     )
   ).reduce((acc, v, i) => {
     acc[allProjects[i].slug] = v ?? 0;
@@ -28,12 +39,12 @@ export default async function ProjectsPage() {
       (project) =>
         project.slug !== featured.slug &&
         project.slug !== top2.slug &&
-        project.slug !== top3.slug,
+        project.slug !== top3.slug
     )
     .sort(
       (a, b) =>
         new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
+        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
     );
 
   return (
@@ -63,21 +74,18 @@ export default async function ProjectsPage() {
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
                     {featured.date ? (
-                      <time dateTime={new Date(featured.date).toISOString()}>
-                        {Intl.DateTimeFormat(undefined, {
-                          dateStyle: "medium",
-                        }).format(new Date(featured.date))}
-                      </time>
+                      <>
+                        <time dateTime={new Date(featured.date).toISOString()}>
+                          {Intl.DateTimeFormat(undefined, {
+                            dateStyle: "medium",
+                          }).format(new Date(featured.date))}
+                        </time>
+                        {" – Built at age " + calculateAge(featured.date)}
+                      </>
                     ) : (
                       <span>SOON</span>
                     )}
                   </div>
-                  <span className="flex items-center gap-1 text-xs text-zinc-500">
-                    <Eye className="w-4 h-4" />{" "}
-                    {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                      views[featured.slug] ?? 0,
-                    )}
-                  </span>
                 </div>
                 <h2 className="mt-4 text-3xl font-bold text-zinc-100 sm:text-4xl">
                   {featured.title}
@@ -91,37 +99,41 @@ export default async function ProjectsPage() {
 
           {/* Ikigami & Ikigai Strategist */}
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0">
-            <Card>
-              <a
-                href="https://www.ikigami.de"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="no-underline"
-              >
-                <article className="p-4 md:p-8">
-                  <h2 className="text-2xl font-bold text-zinc-100">
-                    {top2.title}
-                  </h2>
-                  <p className="mt-2 text-zinc-400">{top2.description}</p>
-                </article>
-              </a>
-            </Card>
-
-            <Card>
-              <a
-                href="https://www.ikigaistrategist.de/start"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="no-underline"
-              >
-                <article className="p-4 md:p-8">
-                  <h2 className="text-2xl font-bold text-zinc-100">
-                    {top3.title}
-                  </h2>
-                  <p className="mt-2 text-zinc-400">{top3.description}</p>
-                </article>
-              </a>
-            </Card>
+            {[top2, top3].map((project) => (
+              <Card key={project.slug}>
+                <a
+                  href={
+                    project.slug === "ikigami"
+                      ? "https://www.ikigami.de"
+                      : "https://www.ikigaistrategist.de/start"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="no-underline"
+                >
+                  <article className="p-4 md:p-8">
+                    <div className="text-xs text-zinc-100 mb-2">
+                      {project.date ? (
+                        <>
+                          <time dateTime={new Date(project.date).toISOString()}>
+                            {Intl.DateTimeFormat(undefined, {
+                              dateStyle: "medium",
+                            }).format(new Date(project.date))}
+                          </time>
+                          {" – Built at age " + calculateAge(project.date)}
+                        </>
+                      ) : (
+                        <span>SOON</span>
+                      )}
+                    </div>
+                    <h2 className="text-2xl font-bold text-zinc-100">
+                      {project.title}
+                    </h2>
+                    <p className="mt-2 text-zinc-400">{project.description}</p>
+                  </article>
+                </a>
+              </Card>
+            ))}
           </div>
         </div>
 
@@ -137,6 +149,20 @@ export default async function ProjectsPage() {
                 className="no-underline"
               >
                 <article className="p-4 md:p-8">
+                  <div className="text-xs text-zinc-100 mb-2">
+                    {project.date ? (
+                      <>
+                        <time dateTime={new Date(project.date).toISOString()}>
+                          {Intl.DateTimeFormat(undefined, {
+                            dateStyle: "medium",
+                          }).format(new Date(project.date))}
+                        </time>
+                        {" – Built at age " + calculateAge(project.date)}
+                      </>
+                    ) : (
+                      <span>SOON</span>
+                    )}
+                  </div>
                   <h2 className="text-2xl font-bold text-zinc-100">
                     {project.title}
                   </h2>
