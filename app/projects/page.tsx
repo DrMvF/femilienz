@@ -1,9 +1,7 @@
-import Link from "next/link";
 import React from "react";
 import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
-import { Article } from "./article";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 
@@ -53,8 +51,14 @@ export default async function ProjectsPage() {
         <div className="w-full h-px bg-zinc-800" />
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
+          {/* JERT */}
           <Card>
-            <Link href={`/projects/${featured.slug}`} className="no-underline">
+            <a
+              href="https://www.jert.us"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="no-underline"
+            >
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
@@ -75,33 +79,49 @@ export default async function ProjectsPage() {
                     )}
                   </span>
                 </div>
-
-                <h2
-                  id="featured-post"
-                  className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl"
-                >
+                <h2 className="mt-4 text-3xl font-bold text-zinc-100 sm:text-4xl">
                   {featured.title}
                 </h2>
-                <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                <p className="mt-4 leading-8 text-zinc-400">
                   {featured.description}
                 </p>
-                <div className="absolute bottom-4 md:bottom-8">
-                  <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
-                    Read more <span aria-hidden="true">&rarr;</span>
-                  </p>
-                </div>
               </article>
-            </Link>
+            </a>
           </Card>
 
+          {/* Ikigami & Ikigai Strategist */}
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0">
-            {[top2, top3].map((project) => (
-              <Card key={project.slug}>
-                <Link href={`/projects/${project.slug}`} className="no-underline">
-                  <Article project={project} views={views[project.slug] ?? 0} />
-                </Link>
-              </Card>
-            ))}
+            <Card>
+              <a
+                href="https://www.ikigami.de"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="no-underline"
+              >
+                <article className="p-4 md:p-8">
+                  <h2 className="text-2xl font-bold text-zinc-100">
+                    {top2.title}
+                  </h2>
+                  <p className="mt-2 text-zinc-400">{top2.description}</p>
+                </article>
+              </a>
+            </Card>
+
+            <Card>
+              <a
+                href="https://www.ikigaistrategist.de/start"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="no-underline"
+              >
+                <article className="p-4 md:p-8">
+                  <h2 className="text-2xl font-bold text-zinc-100">
+                    {top3.title}
+                  </h2>
+                  <p className="mt-2 text-zinc-400">{top3.description}</p>
+                </article>
+              </a>
+            </Card>
           </div>
         </div>
 
@@ -110,9 +130,19 @@ export default async function ProjectsPage() {
         <div className="space-y-8 mt-8">
           {sorted.map((project) => (
             <Card key={project.slug}>
-              <Link href={`/projects/${project.slug}`} className="no-underline">
-                <Article project={project} views={views[project.slug] ?? 0} />
-              </Link>
+              <a
+                href="https://www.radicalsensitiveleadership.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="no-underline"
+              >
+                <article className="p-4 md:p-8">
+                  <h2 className="text-2xl font-bold text-zinc-100">
+                    {project.title}
+                  </h2>
+                  <p className="mt-2 text-zinc-400">{project.description}</p>
+                </article>
+              </a>
             </Card>
           ))}
         </div>
